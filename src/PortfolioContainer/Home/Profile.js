@@ -39,16 +39,15 @@ export default function Profile() {
                   steps={[
                     "Ethusiastic Dev",
                     1000,
-                    "Full stack developer",
+                    "Java Dev",
                     1000,
-                    "React/React Native Dev",
+                    "Average React enjoyer",
                     1000,
                   ]}
                 />
               </h1>
               <span className="profile-role-tagline">
-                Knak of building applications with frontend and back end
-                operations.
+                Computer engeneer at HVL and a careing teacherassisstent.
               </span>
             </span>
           </div>
