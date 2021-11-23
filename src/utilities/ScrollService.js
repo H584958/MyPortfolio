@@ -1,14 +1,14 @@
 import { TOTAL_SCREENS } from "./commonUtils";
-import {subject} from "rxjs";
+import {Subject} from "rxjs";
 import {object} from "prop-types";
 
 export default class ScrollService{
     static scrollHandeler = new ScrollService();
-    static currentScreenBroadCaster = new subject()
-    static currentScreenFadeIn = new subject()
+    static currentScreenBroadCaster = new Subject()
+    static currentScreenFadeIn = new Subject()
 
     constructor(){
-        window.addEventListener('scroll', this.checkCurrentScreenUnerViewport)
+        window.addEventListener('scroll', this.checkCurrentScreenUnderViewport)
     }
 
     scrollToHireMe = () => {
