@@ -7,7 +7,7 @@ export default function footer() {
       <div className="footer-parent">
         <img
           src={require("../../../assets/Home/shape-bg.png").default}
-          alt="you have problem with the image"
+          alt="error with loading pic"
         />
       </div>
     </div>
