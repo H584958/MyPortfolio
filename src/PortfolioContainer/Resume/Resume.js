@@ -10,6 +10,7 @@ export default function Resume(props) {
 
   let fadeInScreenHandler = (screen) => {
     if (screen.fadeInScreen !== props.id) return;
+
     Animations.animations.fadeInScreen(props.id);
   };
   const fadeInSubscription =
@@ -22,9 +23,9 @@ export default function Resume(props) {
           <div className="heading-bullet"></div>
           <span>{props.heading ? props.heading : ""}</span>
           {props.fromDate && props.toDate ? (
-            <div className="heading-date">
+            <dov className="heading-date">
               {props.fromDate + "-" + props.toDate}
-            </div>
+            </dov>
           ) : (
             <div></div>
           )}
@@ -73,14 +74,13 @@ export default function Resume(props) {
       subHeading: "Technologies Used: SpringBoot, Java, CSS, JS, HTML",
     },
   ];
-
   const resumeDetails = [
     <div className="resume-screen-container" key="education">
       <ResumeHeading
         heading={"Western University of Applied Science, Bergen, Norway"}
         subHeading={"BACHELOR OF COMPUTER SCIENCE"}
         fromDate={"2019"}
-        toDate={"2022"}
+        toDate={"Present"}
       />
       <ResumeHeading
         heading={"Roald Amundsen VGS, Viken, Norway"}
@@ -89,70 +89,100 @@ export default function Resume(props) {
         toDate={"2017"}
       />
     </div>,
+
+    /* WORK EXPERIENCE */
     <div className="resume-screen-container" key="work-experience">
-      <ResumeHeading
-        heading={"HVL"}
-        subHeading={"TEACHERASSISSTANT"}
-        fromDate={"2020"}
-        toDate={"Present"}
-      />
-      <div className="experience-description">
-        <span className="resume-description-text">
-          Currently working as TA.
-        </span>
+      <div className="experience-container">
+        <ResumeHeading
+          heading={"HVL"}
+          subHeading={"TEACHERASSISSTANT"}
+          fromDate={"2020"}
+          toDate={"Present"}
+        />
+        <div className="experience-description">
+          <span className="resume-description-text">
+            Currently working as TA.
+          </span>
+        </div>
+        <div className="experience-description">
+          <span className="resume-description-text">
+            - Assist the lecturer with the correction of assignments and help
+            students find good solutions to assignments.
+          </span>
+          <br />
+          <span className="resume-description-text">
+            - I have been assisting in the subjects "Algorithms and
+            datastructures" and "Computers and operatingsystems".
+          </span>
+          <br />
+        </div>
+        <ResumeHeading
+          heading={"Norwegian Defence"}
+          subHeading={"TANK DRIVER & TROOP ASSISTANT"}
+          fromDate={"2017"}
+          toDate={"2018"}
+        />
+        <div className="experience-description">
+          <span className="resume-description-text">
+            I was driving the leader tanks for my platoon and helping with coms and taking imortant decisions.
+          </span>
+        </div>
+        <div className="experience-description">
+          <span className="resume-description-text">
+            - Assisting my platoons leader with coms, driving tanks and maintenance.
+          </span>
+          <br />
+        </div>
       </div>
-      <div className="experience-description">
-        <span className="resume-description-text">
-          - Assist the lecturer with the correction of assignments and help
-          students find good solutions to assignments.
-        </span>
-      </div>
-      ,
-      <div
-        className="resume-screen-container programming-skills-container"
-        key="programming-skills"
-      >
-        {programmingSkillsDetails.map((skill, index) => (
-          <div className="skill-parent" key={index}>
-            <div className="heading-bullet"></div>
-            <span>{skill.skill}</span>
-            <div className="skill-percentage">
-              <div
-                style={{ width: skill.ratingPercentage + "%" }}
-                className="active-percentage-bar"
-              ></div>
-            </div>
+    </div>,
+
+    /* PROGRAMMING SKILLS */
+    <div
+      className="resume-screen-container programming-skills-container"
+      key="programming-skills"
+    >
+      {programmingSkillsDetails.map((skill, index) => (
+        <div className="skill-parent" key={index}>
+          <div className="heading-bullet"></div>
+          <span>{skill.skill}</span>
+          <div className="skill-percentage">
+            <div
+              style={{ width: skill.ratingPercentage + "%" }}
+              className="active-percentage-bar"
+            ></div>
           </div>
-        ))}
-      </div>
-      ,
-      <div className="resume-screen-container" key="projects">
-        {projectsDetails.map((projectsDetails, index) => (
-          <ResumeHeading
-            key={index}
-            heading={projectsDetails.title}
-            subHeading={projectsDetails.subHeading}
-            description={projectsDetails.description}
-            fromDate={projectsDetails.duration.fromDate}
-            toDate={projectsDetails.duration.toDate}
-          />
-        ))}
-      </div>
-      ,
-      <div className="resume-screen-container" key="interests">
+        </div>
+      ))}
+    </div>,
+
+    /* PROJECTS */
+    <div className="resume-screen-container" key="projects">
+      {projectsDetails.map((projectsDetails, index) => (
         <ResumeHeading
-          heading="Teaching"
-          description="Apart from being a tech enthusiast and a code writer, i also love to teach people what i know simply because i believe in sharing."
+          key={index}
+          heading={projectsDetails.title}
+          subHeading={projectsDetails.subHeading}
+          description={projectsDetails.description}
+          fromDate={projectsDetails.duration.fromDate}
+          toDate={projectsDetails.duration.toDate}
         />
-        <ResumeHeading
-          heading="Chess"
-          description="Looking at a smooth chess game is something i can never compromise with, and I can never get enough of the feeling i get when i win a game."
-        />
-        <ResumeHeading
-          heading="Hiking"
-          description="I like the relaxing feeling that comes with going for a hike in the mountains, not to mention the great sights you get to see."
-        />
-      </div>
+      ))}
+    </div>,
+
+    /* Interests */
+    <div className="resume-screen-container" key="interests">
+      <ResumeHeading
+        heading="Teaching"
+        description="Apart from being a tech enthusiast and a code writer, i also love to teach people what i know simply because i believe in sharing."
+      />
+      <ResumeHeading
+        heading="Chess"
+        description="Looking at a smooth chess game is something i can never compromise with, and I can never get enough of the feeling i get when i win a game."
+      />
+      <ResumeHeading
+        heading="Hiking"
+        description="I like the relaxing feeling that comes with going for a hike in the mountains, not to mention the great sights you get to see."
+      />
     </div>,
   ];
 
@@ -198,10 +228,7 @@ export default function Resume(props) {
   };
 
   return (
-    <div
-      className="resume-container screen-container fade-in"
-      id={props.id || ""}
-    >
+    <div className="resume-container screen-container" id={props.id || ""}>
       <div className="resume-content">
         <ScreenHeading title={"Resume"} subHeading={"My formal Bio Details"} />
         <div className="resume-card">
@@ -211,7 +238,6 @@ export default function Resume(props) {
               <div className="bullets">{getBullets()}</div>
             </div>
           </div>
-
           <div className="resume-bullet-details">{getResumeScreens()}</div>
         </div>
       </div>
